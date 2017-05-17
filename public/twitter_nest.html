@@ -59,7 +59,18 @@ $.ajax({
       tweet.tweeter_img = "/twitter_profile_files/mkpdB9Tf_bigger.jpg";
       tweet.tweeter_name = "jack";
       tweet.tweet_time_display = "18h";
+
+      // Testing Nest
+      if (tweet.id == 1 || tweet.id == 4) // Test condition
+        tweet.is_nested = true;
+      else
+        tweet.is_nested = false;
+      // End Nest test
+
       var child = myDiv.clone();
+      console.log(tweet.is_nested);
+      if (tweet.is_nested)
+      {
       child.html("<li class=\"js-stream-item stream-item stream-item\">" +
   "<div class=\"tweet js-stream-tweet js-actionable-tweet js-profile-popup-actionable dismissible-content original-tweet js-original-tweet\">" +
     "<div class=\"content\">" +
@@ -136,6 +147,7 @@ $.ajax({
 "</div>" +
 "</li>");
       myDiv.append(child);
+      }
     }
   });
 </script>
