@@ -134,6 +134,19 @@ $.ajax({
       "</div>" +
   "</button>" +
 "</div>" +
+"<div class=\"ProfileTweet-action ProfileTweet-action--retweet js-toggleState js-toggleRt\">" +
+  "<button class=\"ProfileTweet-actionButton js-actionButton js-actionRetweet\" data-modal=\"ProfileTweet-retweet\" type=\"button\">" +
+    "<div class=\"IconContainer js-tooltip\" title=\"Retweet\">" +
+      "<img src=\"GreyEgg.png\" height=\"14\" width=\"11\"></img>" +
+    "</div>" +
+      "<div class=\"IconTextContainer\">" +
+        "<span class=\"ProfileTweet-actionCount\">" +
+          "<span class=\"ProfileTweet-actionCountForPresentation\" aria-hidden=\"true\">" + tweet.number_of_nests +
+          "</span>" +
+        "</span>" +
+      "</div>" +
+  "</button>" +
+"</div>" +
 "<div class=\"ProfileTweet-action ProfileTweet-action--dm\">" +
     "<button class=\"ProfileTweet-actionButton u-textUserColorHover js-actionButton js-actionShareViaDM\" type=\"button\" data-nav=\"share_tweet_dm\">" +
       "<div class=\"IconContainer js-tooltip\" title=\"Direct message\">" +
