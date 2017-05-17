@@ -1,7 +1,31 @@
 <!DOCTYPE html>
-<!-- saved from url=(0024)https://twitter.com/jack -->
+
 <html lang="en" data-scribe-reduced-action-queue="true">
-	<body>
-		<h1>My Nest</h1>
-	</body>
+<head>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+	<script>
+  		$.ajax({
+    		url: '/tweets'
+  		}).done( function(data) {
+    		// DO STUFF WITH data
+    		var myDiv = $(".template");
+
+	
+    		for (index = 0; index < data.length; index++)
+			{
+      			var child = myDiv.clone();
+    			child.html( "<h3>" + data[index].tweet_text + "</h3>" );
+    			myDiv.append(child);
+  			} 
+  		});
+  	</script>
+</head>
+<body>
+	<h1>My Nest</h1>
+	
+	<!-- This DIV will be replaced with data -->
+  	<div class="template">
+  	</div>
+</body>
 </html>
