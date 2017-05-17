@@ -68,6 +68,10 @@ $.ajax({
       // End Nest test
 
       var child = myDiv.clone();
+      var egg = "<img src=\"GreyEgg.png\" height=\"14\" width=\"11\"></img>";
+      if (tweet.is_nested) {
+        egg = "<img src=\"GoldEgg.png\" height=\"14\" width=\"11\"></img>";
+      }
       console.log(tweet.is_nested);
       if (tweet.is_nested)
       {
@@ -136,8 +140,7 @@ $.ajax({
 "</div>" +
 "<div class=\"ProfileTweet-action ProfileTweet-action--retweet js-toggleState js-toggleRt\">" +
   "<button class=\"ProfileTweet-actionButton js-actionButton js-actionRetweet\" data-modal=\"ProfileTweet-retweet\" type=\"button\">" +
-    "<div class=\"IconContainer js-tooltip\" title=\"Retweet\">" +
-      "<img src=\"GreyEgg.png\" height=\"14\" width=\"11\"></img>" +
+    "<div class=\"IconContainer js-tooltip\" title=\"Retweet\">" + egg +
     "</div>" +
       "<div class=\"IconTextContainer\">" +
         "<span class=\"ProfileTweet-actionCount\">" +
