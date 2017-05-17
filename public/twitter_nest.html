@@ -352,13 +352,15 @@ $.ajax({
                 <div class="ProfileSidebar ProfileSidebar--withLeftAlignment">
   <div class="ProfileHeaderCard">
   <h1 class="ProfileHeaderCard-name">
-    <a href="https://twitter.com/jack" class="ProfileHeaderCard-nameLink u-textInheritColor js-nav">susan</a><span class="ProfileHeaderCard-badges"><a href="https://twitter.com/help/verified" class="js-tooltip" target="_blank" title="Verified account" data-placement="right" rel="noopener"><span class="Icon Icon--verified"><span class="u-hiddenVisually">Verified account</span></span></a></span>
+    <a href="https://twitter.com/jack" class="ProfileHeaderCard-nameLink u-textInheritColor js-nav">Add a new category</a><span class="ProfileHeaderCard-badges"></span>
   </h1>
 
   <h2 class="ProfileHeaderCard-screenname u-inlineBlock u-dir" dir="ltr">
-    <a class="ProfileHeaderCard-screennameLink u-linkComplex js-nav" href="https://twitter.com/jack">
-      <span class="username u-dir" dir="ltr">@<b class="u-linkComplex-target">susan</b></span>
-    </a>
+    <form class="t1-form form-search js-search-form" action="https://twitter.com/search" id="global-nav-search">
+      <label class="visuallyhidden" for="search-query">Search query</label>
+      <input class="search-input" type="text" id="search-query" placeholder="Category name" name="q" autocomplete="off" spellcheck="false" aria-autocomplete="list" aria-expanded="false" aria-owns="typeahead-dropdown-7" data-com.agilebits.onepassword.user-edited="yes" dir="ltr" style="direction: ltr; text-align: left;">
+      <span class="search-icon js-search-action">
+      </span>
   </h2>
 
     <p class="ProfileHeaderCard-bio u-dir" dir="ltr"></p>
@@ -396,8 +398,18 @@ $.ajax({
       <h2 id="content-main-heading" class="ProfileHeading-title u-hiddenVisually ">Tweets</h2>
         <ul class="ProfileHeading-toggle">
             <li class="ProfileHeading-toggleItem  is-active" data-element-term="tweets_toggle">
-                <span aria-hidden="true">Nested Tweets</span>
+                <span aria-hidden="true">All Nested Tweets</span>
                 <span class="u-hiddenVisually">Tweets, current page.</span>
+            </li>
+            <li class="ProfileHeading-toggleItem  u-textUserColor" data-element-term="tweets_with_replies_toggle">
+                <a class="ProfileHeading-toggleLink js-nav" href="https://twitter.com/jack/with_replies" data-nav="tweets_with_replies_toggle">
+                  Funny
+                </a>
+            </li>
+            <li class="ProfileHeading-toggleItem  u-textUserColor" data-element-term="photos_and_videos_toggle">
+                <a class="ProfileHeading-toggleLink js-nav" href="https://twitter.com/jack/media" data-nav="photos_and_videos_toggle">
+                  Politics
+                </a>
             </li>
         </ul>
     </div>
