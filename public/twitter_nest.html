@@ -59,16 +59,16 @@ $.ajax({
       tweet.tweeter_img = "/twitter_profile_files/mkpdB9Tf_bigger.jpg";
       tweet.tweeter_name = "jack";
       tweet.tweet_time_display = "18h";
-
-      // Testing Nest
-      if (tweet.id == 1 || tweet.id == 4) // Test condition
-        tweet.is_nested = true;
-      else
-        tweet.is_nested = false;
-      // End Nest test
-
       var child = myDiv.clone();
+<<<<<<< HEAD
+      var egg = "<img src=\"GreyEgg.png\" height=\"14\" width=\"11\"></img>";
+      if (tweet.is_nested) {
+        egg = "<img src=\"GoldEgg.png\" height=\"14\" width=\"11\"></img>";
+      }
       console.log(tweet.is_nested);
+=======
+
+>>>>>>> 73595922b9a59f00079dd653cb6eec15d065ea37
       if (tweet.is_nested)
       {
       child.html("<li class=\"js-stream-item stream-item stream-item\">" +
@@ -136,8 +136,7 @@ $.ajax({
 "</div>" +
 "<div class=\"ProfileTweet-action ProfileTweet-action--retweet js-toggleState js-toggleRt\">" +
   "<button class=\"ProfileTweet-actionButton js-actionButton js-actionRetweet\" data-modal=\"ProfileTweet-retweet\" type=\"button\">" +
-    "<div class=\"IconContainer js-tooltip\" title=\"Retweet\">" +
-      "<img src=\"GreyEgg.png\" height=\"14\" width=\"11\"></img>" +
+    "<div class=\"IconContainer js-tooltip\" title=\"Retweet\">" + egg +
     "</div>" +
       "<div class=\"IconTextContainer\">" +
         "<span class=\"ProfileTweet-actionCount\">" +
