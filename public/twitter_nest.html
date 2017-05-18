@@ -428,7 +428,7 @@ $.ajax({
 
   <!-- <div class="ProfileHeaderCard"> -->
   <h1 class="ProfileHeaderCard-name">
-    <a href="https://twitter.com/jack" class="ProfileHeaderCard-nameLink u-textInheritColor js-nav">Add a new category</a><span class="ProfileHeaderCard-badges"></span>
+    <a class="ProfileHeaderCard-nameLink u-textInheritColor js-nav">Add a new category</a><span class="ProfileHeaderCard-badges"></span>
   </h1>
 
   <h2 class="ProfileHeaderCard-screenname u-inlineBlock u-dir" dir="ltr">
@@ -441,7 +441,7 @@ $.ajax({
 
   <div> <br /> </div>
   <h1 class="ProfileHeaderCard-name">
-    <a href="https://twitter.com/jack" class="ProfileHeaderCard-nameLink u-textInheritColor js-nav">Customize timer</a><span class="ProfileHeaderCard-badges"></span>
+    <a class="ProfileHeaderCard-nameLink u-textInheritColor js-nav">Customize timer</a><span class="ProfileHeaderCard-badges"></span>
   </h1>
   <h2 class="ProfileHeaderCard-screenname u-inlineBlock u-dir" dir="ltr">
     <form class="t1-form form-search js-search-form" action="https://twitter.com/search" id="global-nav-search">
@@ -455,7 +455,9 @@ $.ajax({
       <br /><br/ >
   </h2>
 
-
+  <h1 class="ProfileHeaderCard-name">
+    <a class="ProfileHeaderCard-nameLink u-textInheritColor js-nav">Time left:</a><span class="ProfileHeaderCard-badges"></span>
+  </h1>
   <!-- Display the countdown timer in an element -->
   <h2 class="ProfileHeaderCard-screenname u-inlineBlock u-dir" dir="ltr">
 <p id="demo"></p>
@@ -480,7 +482,7 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Display the result in the element with id="demo"
-  document.getElementById("demo").innerHTML = "<b>Time left:</b><br />" + days + "d " + hours + "h "
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
   + minutes + "m " + seconds + "s ";
 
   // If the count down is finished, write some text
