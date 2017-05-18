@@ -203,6 +203,7 @@ $.ajax({
       });
     }
     */
+    if (data["tweets"][0].is_nested) {
     document.getElementById("nestButton0").addEventListener("click", function(){
       //alert(tweet.is_nested);
       var nestDiv = $(".eggId0");
@@ -210,15 +211,6 @@ $.ajax({
       var eggDiv = $(".egg-count");
       var eggCount = numEgg;
       $(".egg0").remove();
-      if(!(data["tweets"][0].is_nested)) {
-        data["tweets"][0].is_nested = true;
-        data["tweets"][0].number_of_nests++;
-        numEgg++;
-        child.html(goldArray[0]);
-        nestDiv.append(goldArray[0]);
-        eggDiv.empty();
-        eggDiv.append(numEgg);
-      } else {
         data["tweets"][0].is_nested = false;
         data["tweets"][0].number_of_nests--;
         numEgg--;
@@ -227,8 +219,9 @@ $.ajax({
         nestDiv.append(greyArray[0]);
         eggDiv.empty();
         eggDiv.append(numEgg);
-      }
     });
+  }
+    if (data["tweets"][1].is_nested) {
     document.getElementById("nestButton1").addEventListener("click", function(){
       //alert(tweet.is_nested);
       var nestDiv = $(".eggId1");
@@ -236,15 +229,6 @@ $.ajax({
       var eggDiv = $(".egg-count");
       var eggCount = numEgg;
       $(".egg1").remove();
-      if(!(data["tweets"][1].is_nested)) {
-        data["tweets"][1].is_nested = true;
-        data["tweets"][1].number_of_nests++;
-        numEgg++;
-        child.html(goldArray[1]);
-        nestDiv.append(goldArray[1]);
-        eggDiv.empty();
-        eggDiv.append(numEgg);
-      } else {
         data["tweets"][1].is_nested = false;
         data["tweets"][1].number_of_nests--;
         numEgg--;
@@ -253,8 +237,10 @@ $.ajax({
         nestDiv.append(greyArray[1]);
         eggDiv.empty();
         eggDiv.append(numEgg);
-      }
     });
+  }
+
+  if (data["tweets"][2].is_nested) {
     document.getElementById("nestButton2").addEventListener("click", function(){
       //alert(tweet.is_nested);
       var nestDiv = $(".eggId2");
@@ -262,15 +248,6 @@ $.ajax({
       var eggDiv = $(".egg-count");
       var eggCount = numEgg;
       $(".egg2").remove();
-      if(!(data["tweets"][2].is_nested)) {
-        data["tweets"][2].is_nested = true;
-        data["tweets"][2].number_of_nests++;
-        numEgg++;
-        child.html(goldArray[2]);
-        nestDiv.append(goldArray[2]);
-        eggDiv.empty();
-        eggDiv.append(numEgg);
-      } else {
         data["tweets"][2].is_nested = false;
         data["tweets"][2].number_of_nests--;
         numEgg--;
@@ -279,8 +256,9 @@ $.ajax({
         nestDiv.append(greyArray[2]);
         eggDiv.empty();
         eggDiv.append(numEgg);
-      }
     });
+  }
+  if (data["tweets"][3].is_nested) {
     document.getElementById("nestButton3").addEventListener("click", function(){
       //alert(tweet.is_nested);
       var nestDiv = $(".eggId3");
@@ -288,15 +266,6 @@ $.ajax({
       var eggDiv = $(".egg-count");
       var eggCount = numEgg;
       $(".egg3").remove();
-      if(!(data["tweets"][3].is_nested)) {
-        data["tweets"][3].is_nested = true;
-        data["tweets"][3].number_of_nests++;
-        numEgg++;
-        child.html(goldArray[3]);
-        nestDiv.append(goldArray[3]);
-        eggDiv.empty();
-        eggDiv.append(numEgg);
-      } else {
         data["tweets"][3].is_nested = false;
         data["tweets"][3].number_of_nests--;
         numEgg--;
@@ -305,8 +274,8 @@ $.ajax({
         nestDiv.append(greyArray[3]);
         eggDiv.empty();
         eggDiv.append(numEgg);
-      }
     });
+  }
   });
 </script>
 
