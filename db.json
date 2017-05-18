@@ -1,5 +1,5 @@
 {
-	"tweets":	
+	"tweets":
 	[
 		{
   			"id": 1,
@@ -9,7 +9,7 @@
   			"number_of_replies": 345,
    			"number_of_impressions": 1034,
 				"number_of_nests": 9,
-				"is_nested": false,
+				"is_nested": true,
    			"location": "Paris, France",
    			"date_time": "Sat 13 May 2017 02:00 UTC"
 		},
@@ -33,7 +33,7 @@
    			"number_of_replies": 12,
    			"number_of_impressions": 2034,
 				"number_of_nests": 43,
-				"is_nested": false,
+				"is_nested": true,
    			"location": "Lagos, Nigeria",
    			"date_time": "Sat 13 May 2017 02:00 UTC"
 		},
@@ -44,8 +44,8 @@
    			"number_of_retweets": 73,
    			"number_of_replies": 17,
    			"number_of_impressions": 203,
-			"number_of_nests": 89,
-			"is_nested": false,
+				"number_of_nests": 0,
+				"is_nested": false,
    			"location": "London, England",
    			"date_time": "Sat 13 May 2017 02:00 UTC"
 		}
@@ -54,10 +54,10 @@
 	"profiles":
 	[
 	  	{
-  			"id": 1, 
-			"firstname": "John", 
-			"lastname": "Doe", 
-			"favorite_show": "Dear White People", 
+  			"id": 1,
+			"firstname": "John",
+			"lastname": "Doe",
+			"favorite_show": "Dear White People",
 			"school": "Winchester University",
 			"num_eggs": 3
   		}

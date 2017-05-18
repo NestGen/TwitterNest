@@ -49,28 +49,21 @@
 <script>
 var numEgg;
 
-$.ajax( {
-  url: '/profiles'
-}).done( function(profiles) {
-  var profile = profiles[0];
-  numEgg = profile.num_eggs;
-  var eggDiv = $(".egg-count");
-  var eggChild = eggDiv.clone();
-  eggDiv.append(numEgg);
-});
-
 $.ajax({
-    url: '/tweets'
+    url: '/db'
   }).done( function(data) {
-
+    var profile = data["profiles"][0];
+    numEgg = profile.num_eggs;
+    var eggDiv = $(".egg-count");
+    var eggChild = eggDiv.clone();
+    eggDiv.append(numEgg);
     // DO STUFF WITH data
     var myDiv = $(".take-flight-project-insert");
-    console.log(data);
-    console.log(data.length);
+
     var goldArray = [];
     var greyArray = [];
-    for (i = 0; i < data.length; i++) {
-      var tweet = data[i];
+    for (i = 0; i < data["tweets"].length; i++) {
+      var tweet = data["tweets"][i];
       tweet.tweeter_img = "/twitter_profile_files/mkpdB9Tf_bigger.jpg";
       tweet.tweeter_name = "jack";
       tweet.tweet_time_display = "18h";
@@ -182,17 +175,17 @@ $.ajax({
         var eggDiv = $(".egg-count");
         var eggCount = numEgg;
         $(".egg" + i).remove();
-        if(!(data[i].is_nested)) {
-          data[i].is_nested = true;
-          data[i].number_of_nests++;
+        if(!(data["tweets"][i].is_nested)) {
+          data["tweets"][i].is_nested = true;
+          data["tweets"][i].number_of_nests++;
           numEgg++;
           child.html(goldArray[i]);
           nestDiv.append(goldArray[i]);
           eggDiv.empty();
           eggDiv.append(numEgg);
         } else {
-          data[i].is_nested = false;
-          data[i].number_of_nests--;
+          data["tweets"][i].is_nested = false;
+          data["tweets"][i].number_of_nests--;
           numEgg--;
           //myDiv.(goldEgg).remove or something
           child.html(greyArray[i]);
@@ -210,17 +203,17 @@ $.ajax({
       var eggDiv = $(".egg-count");
       var eggCount = numEgg;
       $(".egg0").remove();
-      if(!(data[0].is_nested)) {
-        data[0].is_nested = true;
-        data[0].number_of_nests++;
+      if(!(data["tweets"][0].is_nested)) {
+        data["tweets"][0].is_nested = true;
+        data["tweets"][0].number_of_nests++;
         numEgg++;
         child.html(goldArray[0]);
         nestDiv.append(goldArray[0]);
         eggDiv.empty();
         eggDiv.append(numEgg);
       } else {
-        data[0].is_nested = false;
-        data[0].number_of_nests--;
+        data["tweets"][0].is_nested = false;
+        data["tweets"][0].number_of_nests--;
         numEgg--;
         //myDiv.(goldEgg).remove or something
         child.html(greyArray[0]);
@@ -236,17 +229,17 @@ $.ajax({
       var eggDiv = $(".egg-count");
       var eggCount = numEgg;
       $(".egg1").remove();
-      if(!(data[1].is_nested)) {
-        data[1].is_nested = true;
-        data[1].number_of_nests++;
+      if(!(data["tweets"][1].is_nested)) {
+        data["tweets"][1].is_nested = true;
+        data["tweets"][1].number_of_nests++;
         numEgg++;
         child.html(goldArray[1]);
         nestDiv.append(goldArray[1]);
         eggDiv.empty();
         eggDiv.append(numEgg);
       } else {
-        data[1].is_nested = false;
-        data[0].number_of_nests--;
+        data["tweets"][1].is_nested = false;
+        data["tweets"][1].number_of_nests--;
         numEgg--;
         //myDiv.(goldEgg).remove or something
         child.html(greyArray[1]);
@@ -262,17 +255,17 @@ $.ajax({
       var eggDiv = $(".egg-count");
       var eggCount = numEgg;
       $(".egg2").remove();
-      if(!(data[2].is_nested)) {
-        data[2].is_nested = true;
-        data[2].number_of_nests++;
+      if(!(data["tweets"][2].is_nested)) {
+        data["tweets"][2].is_nested = true;
+        data["tweets"][2].number_of_nests++;
         numEgg++;
         child.html(goldArray[2]);
         nestDiv.append(goldArray[2]);
         eggDiv.empty();
         eggDiv.append(numEgg);
       } else {
-        data[2].is_nested = false;
-        data[2].number_of_nests--;
+        data["tweets"][2].is_nested = false;
+        data["tweets"][2].number_of_nests--;
         numEgg--;
         //myDiv.(goldEgg).remove or something
         child.html(greyArray[2]);
@@ -288,17 +281,17 @@ $.ajax({
       var eggDiv = $(".egg-count");
       var eggCount = numEgg;
       $(".egg3").remove();
-      if(!(data[3].is_nested)) {
-        data[3].is_nested = true;
-        data[3].number_of_nests++;
+      if(!(data["tweets"][3].is_nested)) {
+        data["tweets"][3].is_nested = true;
+        data["tweets"][3].number_of_nests++;
         numEgg++;
         child.html(goldArray[3]);
         nestDiv.append(goldArray[3]);
         eggDiv.empty();
         eggDiv.append(numEgg);
       } else {
-        data[3].is_nested = false;
-        data[3].number_of_nests--;
+        data["tweets"][3].is_nested = false;
+        data["tweets"][3].number_of_nests--;
         numEgg--;
         //myDiv.(goldEgg).remove or something
         child.html(greyArray[3]);
@@ -375,7 +368,7 @@ $.ajax({
             <span class="count new-count">
               <span class="count-inner">
                 <div class="egg-count">
-                  <!-- For Nest Notification count -->
+                  <!-- For Nest  count -->
                 </div>
               </span>
             </span>
