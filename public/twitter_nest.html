@@ -47,6 +47,18 @@
 <!-- TWITTER UNIVERSITY -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script>
+var numEgg;
+
+$.ajax( {
+  url: '/profiles'
+}).done( function(profiles) {
+  var profile = profiles[0];
+  numEgg = profile.num_eggs;
+  var eggDiv = $(".egg-count");
+  var eggChild = eggDiv.clone();
+  eggDiv.append(numEgg);
+});
+
 $.ajax({
     url: '/tweets'
   }).done( function(data) {
@@ -54,18 +66,26 @@ $.ajax({
     var myDiv = $(".take-flight-project-insert");
     console.log(data);
     console.log(data.length);
+    var goldArray = [];
+    var greyArray = [];
     for (i = 0; i < data.length; i++) {
       var tweet = data[i];
       tweet.tweeter_img = "/twitter_profile_files/mkpdB9Tf_bigger.jpg";
       tweet.tweeter_name = "jack";
       tweet.tweet_time_display = "18h";
       var child = myDiv.clone();
-      var egg = "<img src=\"GreyEgg.png\" height=\"14\" width=\"11\"></img>";
+      var greyEgg = "<img class=\"egg" + i + "\" src=\"GreyEgg.png\" height=\"14\" width=\"11\"></img>";
+      var goldEgg = "<img class=\"egg" + i + "\" src=\"GoldEgg.png\" height=\"14\" width=\"11\"></img>";
+      goldArray[i] = goldEgg;
+      greyArray[i] = greyEgg;
+      var egg = [];
+      egg[i] = greyEgg;
       if (tweet.is_nested) {
-        egg = "<img src=\"GoldEgg.png\" height=\"14\" width=\"11\"></img>";
+        egg[i] = goldEgg;
       }
       console.log(tweet.is_nested);
-
+      var buttonId = "nestButton" + i;
+      var eggId = "eggId" + i;
       if (tweet.is_nested)
       {
       child.html("<li class=\"js-stream-item stream-item stream-item\">" +
@@ -133,8 +153,8 @@ $.ajax({
   "</button>" +
 "</div>" +
 "<div class=\"ProfileTweet-action ProfileTweet-action--retweet js-toggleState js-toggleRt\">" +
-  "<button class=\"ProfileTweet-actionButton js-actionButton js-actionRetweet\" data-modal=\"ProfileTweet-retweet\" type=\"button\">" +
-    "<div class=\"IconContainer js-tooltip\" title=\"Retweet\">" + egg +
+  "<button class=\"ProfileTweet-actionButton js-actionButton js-actionRetweet\" id=" + buttonId + " data-modal=\"ProfileTweet-retweet\" type=\"button\">" +
+    "<div class=\"IconContainer js-tooltip\" title=\"Nest\"> <div class="+ eggId + ">" + egg[i] + "</div>" +
     "</div>" +
       "<div class=\"IconTextContainer\">" +
         "<span class=\"ProfileTweet-actionCount\">" +
@@ -159,6 +179,30 @@ $.ajax({
       myDiv.append(child);
       }
     }
+    document.getElementById("nestButton0").addEventListener("click", function(){
+      //alert(tweet.is_nested);
+      var nestDiv = $(".eggId0");
+      var child = myDiv.clone();
+      var eggDiv = $(".egg-count");
+      var eggCount = numEgg;
+      $(".egg0").remove();
+      if(!(tweet.is_nested)) {
+        tweet.is_nested = true;
+        numEgg++;
+        child.html(goldArray[0]);
+        nestDiv.append(goldArray[0]);
+        eggDiv.replace(eggCount);
+        eggDiv.append(numEgg);
+      } else {
+        tweet.is_nested = false;
+        numEgg--;
+        //myDiv.(goldEgg).remove or something
+        child.html(greyArray[0]);
+        nestDiv.append(greyArray[0]);
+        var eggDiv = $(".egg-count");
+        eggDiv.append(numEgg);
+      }
+    });
   });
 </script>
 
@@ -225,7 +269,10 @@ $.ajax({
             <span class="u-hiddenVisually a11y-inactive-page-text">Notifications</span>
             <span class="u-hiddenVisually a11y-active-page-text">Notifications, current page.</span>
               <span class="count new-count">
-                <span class="count-inner">1</span>
+                <span class="count-inner">
+                  <div class="egg-count">
+                  </div>
+                </span>
               </span>
           </a>
 	  </li></ul>
@@ -391,6 +438,8 @@ $.ajax({
       <span class="search-icon js-search-action">
       </span>
   </h2>
+<<<<<<< HEAD
+=======
   <div> <br /> </div>
   <h1 class="ProfileHeaderCard-name">
     <a href="https://twitter.com/jack" class="ProfileHeaderCard-nameLink u-textInheritColor js-nav">Customize timer</a><span class="ProfileHeaderCard-badges"></span>
@@ -443,6 +492,7 @@ var x = setInterval(function() {
 }, 1000);
 </script>
 </h2>
+>>>>>>> d79b3df606449dc7eb6ce6aef3c017ac8a7b11e9
 
     <p class="ProfileHeaderCard-bio u-dir" dir="ltr"></p>
 
