@@ -189,17 +189,19 @@ $.ajax({
       if(!(tweet.is_nested)) {
         tweet.is_nested = true;
         numEgg++;
+        tweet.number_of_nests++;
         child.html(goldArray[0]);
         nestDiv.append(goldArray[0]);
-        eggDiv.replace(eggCount);
+        eggDiv.empty();
         eggDiv.append(numEgg);
       } else {
         tweet.is_nested = false;
         numEgg--;
+        tweet.number_of_nests--;
         //myDiv.(goldEgg).remove or something
         child.html(greyArray[0]);
         nestDiv.append(greyArray[0]);
-        var eggDiv = $(".egg-count");
+        eggDiv.empty();
         eggDiv.append(numEgg);
       }
     });
@@ -266,8 +268,8 @@ $.ajax({
           <a class="js-nav js-tooltip js-dynamic-tooltip" data-placement="bottom" href="twitter_nest.html" data-component-context="connect_nav" data-nav="connect">
             <img src="./twitter_profile_files/nest.png" style="width:50px;height:43px;" align=left>
             <span class="text" aria-hidden="true">Nest</span>
-            <span class="u-hiddenVisually a11y-inactive-page-text">Notifications</span>
-            <span class="u-hiddenVisually a11y-active-page-text">Notifications, current page.</span>
+            <span class="u-hiddenVisually a11y-inactive-page-text">Nest</span>
+            <span class="u-hiddenVisually a11y-active-page-text">Nest, current page.</span>
               <span class="count new-count">
                 <span class="count-inner">
                   <div class="egg-count">
@@ -438,7 +440,6 @@ $.ajax({
       <span class="search-icon js-search-action">
       </span>
   </h2>
-
   <div> <br /> </div>
   <h1 class="ProfileHeaderCard-name">
     <a class="ProfileHeaderCard-nameLink u-textInheritColor js-nav">Customize timer</a><span class="ProfileHeaderCard-badges"></span>
