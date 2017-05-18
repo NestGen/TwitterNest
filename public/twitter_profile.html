@@ -47,9 +47,22 @@
 <!-- TWITTER UNIVERSITY -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script>
+var numEgg;
+
+$.ajax( {
+  url: '/profiles'
+}).done( function(profiles) {
+  var profile = profiles[0];
+  numEgg = profile.num_eggs;
+  var eggDiv = $(".egg-count");
+  var eggChild = eggDiv.clone();
+  eggDiv.append(numEgg);
+})
+
 $.ajax({
     url: '/tweets'
   }).done( function(data) {
+
     // DO STUFF WITH data
     var myDiv = $(".take-flight-project-insert");
     console.log(data);
@@ -219,7 +232,11 @@ $.ajax({
           <span class="u-hiddenVisually a11y-inactive-page-text">Notifications</span>
           <span class="u-hiddenVisually a11y-active-page-text">Notifications, current page.</span>
             <span class="count new-count">
-              <span class="count-inner">1</span>
+              <span class="count-inner">
+                <div class="egg-count">
+                  <!-- For Nest Notification count -->
+                </div>
+              </span>
             </span>
         </a>
   </div>
