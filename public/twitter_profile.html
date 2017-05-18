@@ -57,12 +57,11 @@ $.ajax( {
   var eggDiv = $(".egg-count");
   var eggChild = eggDiv.clone();
   eggDiv.append(numEgg);
-})
+});
 
 $.ajax({
     url: '/tweets'
   }).done( function(data) {
-
     // DO STUFF WITH data
     var myDiv = $(".take-flight-project-insert");
     console.log(data);
