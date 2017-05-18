@@ -63,22 +63,23 @@ $.ajax({
 
     var goldArray = [];
     var greyArray = [];
+    var x = 0;
     for (i = 0; i < data["tweets"].length; i++) {
       var tweet = data["tweets"][i];
       tweet.tweeter_img = "/twitter_profile_files/mkpdB9Tf_bigger.jpg";
       tweet.tweeter_name = "jack";
       tweet.tweet_time_display = "18h";
       var child = myDiv.clone();
-      var greyEgg = "<img class=\"egg" + i + "\" src=\"GreyEgg.png\" height=\"14\" width=\"11\"></img>";
-      var goldEgg = "<img class=\"egg" + i + "\" src=\"GoldEgg.png\" height=\"14\" width=\"11\"></img>";
-      goldArray[i] = goldEgg;
-      greyArray[i] = greyEgg;
+      var greyEgg = "<img class=\"egg" + x + "\" src=\"GreyEgg.png\" height=\"14\" width=\"11\"></img>";
+      var goldEgg = "<img class=\"egg" + x + "\" src=\"GoldEgg.png\" height=\"14\" width=\"11\"></img>";
+      goldArray[x] = goldEgg;
+      greyArray[x] = greyEgg;
       var egg = greyEgg;
       if (tweet.is_nested) {
         egg = goldEgg;
       }
       var buttonId = "nestButton" + i;
-      var eggId = "eggId" + i;
+      var eggId = "eggId" + x;
       if (tweet.is_nested)
       {
       child.html("<li class=\"js-stream-item stream-item stream-item\">" +
@@ -170,8 +171,9 @@ $.ajax({
 "</div>" +
 "</li>");
       myDiv.append(child);
-      }
+      x++;
     }
+  }
     /*for (var i = 0; i < data.length; i++) { //show Tayo
       document.getElementById("nestButton" + i).addEventListener("click", function(){
         //alert(tweet.is_nested);
