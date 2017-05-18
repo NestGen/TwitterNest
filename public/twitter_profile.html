@@ -79,10 +79,9 @@ $.ajax({
       var goldEgg = "<img class=\"egg" + i + "\" src=\"GoldEgg.png\" height=\"14\" width=\"11\"></img>";
       goldArray[i] = goldEgg;
       greyArray[i] = greyEgg;
-      var egg = [];
-      egg[i] = greyEgg;
+      var egg = greyEgg;
       if (tweet.is_nested) {
-        egg[i] = goldEgg;
+        egg = goldEgg;
       }
       var buttonId = "nestButton" + i;
       var eggId = "eggId" + i;
@@ -151,7 +150,7 @@ $.ajax({
 "</div>" +
 "<div class=\"ProfileTweet-action ProfileTweet-action--retweet js-toggleState js-toggleRt\">" +
   "<button class=\"ProfileTweet-actionButton js-actionButton js-actionRetweet\" id=" + buttonId + " data-modal=\"ProfileTweet-retweet\" type=\"button\">" +
-    "<div class=\"IconContainer js-tooltip\" title=\"Nest\"> <div class="+ eggId + ">" + egg[i] + "</div>" +
+    "<div class=\"IconContainer js-tooltip\" title=\"Nest\"> <div class="+ eggId + ">" + egg + "</div>" +
     "</div>" +
       "<div class=\"IconTextContainer\">" +
         "<span class=\"ProfileTweet-actionCount\">" +
@@ -175,6 +174,35 @@ $.ajax({
 "</li>");
       myDiv.append(child);
     }
+    /*for (var i = 0; i < data.length; i++) { //show Tayo
+      document.getElementById("nestButton" + i).addEventListener("click", function(){
+        //alert(tweet.is_nested);
+        var nestDiv = $(".eggId" + i);
+        var child = myDiv.clone();
+        var eggDiv = $(".egg-count");
+        var eggCount = numEgg;
+        $(".egg" + i).remove();
+        if(!(data[i].is_nested)) {
+          data[i].is_nested = true;
+          data[i].number_of_nests++;
+          numEgg++;
+          child.html(goldArray[i]);
+          nestDiv.append(goldArray[i]);
+          eggDiv.empty();
+          eggDiv.append(numEgg);
+        } else {
+          data[i].is_nested = false;
+          data[i].number_of_nests--;
+          numEgg--;
+          //myDiv.(goldEgg).remove or something
+          child.html(greyArray[i]);
+          nestDiv.append(greyArray[i]);
+          eggDiv.empty();
+          eggDiv.append(numEgg);
+        }
+      });
+    }
+    */
     document.getElementById("nestButton0").addEventListener("click", function(){
       //alert(tweet.is_nested);
       var nestDiv = $(".eggId0");
@@ -182,19 +210,99 @@ $.ajax({
       var eggDiv = $(".egg-count");
       var eggCount = numEgg;
       $(".egg0").remove();
-      if(!(tweet.is_nested)) {
-        tweet.is_nested = true;
+      if(!(data[0].is_nested)) {
+        data[0].is_nested = true;
+        data[0].number_of_nests++;
         numEgg++;
         child.html(goldArray[0]);
         nestDiv.append(goldArray[0]);
         eggDiv.empty();
         eggDiv.append(numEgg);
       } else {
-        tweet.is_nested = false;
+        data[0].is_nested = false;
+        data[0].number_of_nests--;
         numEgg--;
         //myDiv.(goldEgg).remove or something
         child.html(greyArray[0]);
         nestDiv.append(greyArray[0]);
+        eggDiv.empty();
+        eggDiv.append(numEgg);
+      }
+    });
+    document.getElementById("nestButton1").addEventListener("click", function(){
+      //alert(tweet.is_nested);
+      var nestDiv = $(".eggId1");
+      var child = myDiv.clone();
+      var eggDiv = $(".egg-count");
+      var eggCount = numEgg;
+      $(".egg1").remove();
+      if(!(data[1].is_nested)) {
+        data[1].is_nested = true;
+        data[1].number_of_nests++;
+        numEgg++;
+        child.html(goldArray[1]);
+        nestDiv.append(goldArray[1]);
+        eggDiv.empty();
+        eggDiv.append(numEgg);
+      } else {
+        data[1].is_nested = false;
+        data[0].number_of_nests--;
+        numEgg--;
+        //myDiv.(goldEgg).remove or something
+        child.html(greyArray[1]);
+        nestDiv.append(greyArray[1]);
+        eggDiv.empty();
+        eggDiv.append(numEgg);
+      }
+    });
+    document.getElementById("nestButton2").addEventListener("click", function(){
+      //alert(tweet.is_nested);
+      var nestDiv = $(".eggId2");
+      var child = myDiv.clone();
+      var eggDiv = $(".egg-count");
+      var eggCount = numEgg;
+      $(".egg2").remove();
+      if(!(data[2].is_nested)) {
+        data[2].is_nested = true;
+        data[2].number_of_nests++;
+        numEgg++;
+        child.html(goldArray[2]);
+        nestDiv.append(goldArray[2]);
+        eggDiv.empty();
+        eggDiv.append(numEgg);
+      } else {
+        data[2].is_nested = false;
+        data[2].number_of_nests--;
+        numEgg--;
+        //myDiv.(goldEgg).remove or something
+        child.html(greyArray[2]);
+        nestDiv.append(greyArray[2]);
+        eggDiv.empty();
+        eggDiv.append(numEgg);
+      }
+    });
+    document.getElementById("nestButton3").addEventListener("click", function(){
+      //alert(tweet.is_nested);
+      var nestDiv = $(".eggId3");
+      var child = myDiv.clone();
+      var eggDiv = $(".egg-count");
+      var eggCount = numEgg;
+      $(".egg3").remove();
+      if(!(data[3].is_nested)) {
+        data[3].is_nested = true;
+        data[3].number_of_nests++;
+        numEgg++;
+        child.html(goldArray[3]);
+        nestDiv.append(goldArray[3]);
+        eggDiv.empty();
+        eggDiv.append(numEgg);
+      } else {
+        data[3].is_nested = false;
+        data[3].number_of_nests--;
+        numEgg--;
+        //myDiv.(goldEgg).remove or something
+        child.html(greyArray[3]);
+        nestDiv.append(greyArray[3]);
         eggDiv.empty();
         eggDiv.append(numEgg);
       }
