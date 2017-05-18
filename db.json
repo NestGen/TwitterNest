@@ -9,7 +9,7 @@
   			"number_of_replies": 345,
    			"number_of_impressions": 1034,
 				"number_of_nests": 9,
-				"is_nested": true,
+				"is_nested": false,
    			"location": "Paris, France",
    			"date_time": "Sat 13 May 2017 02:00 UTC"
 		},
@@ -21,7 +21,7 @@
   			"number_of_replies": 345,
    			"number_of_impressions": 1034,
 				"number_of_nests": 0,
-				"is_nested": true,
+				"is_nested": false,
    			"location": "Paris, France",
    			"date_time": "Sat 13 May 2017 02:00 UTC"
 		},
