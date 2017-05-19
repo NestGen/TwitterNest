@@ -4,11 +4,11 @@
 		{
   			"id": 1,
   			"tweet_text": "Luis Calona is awesome!",
-   			"number_of_likes": 14,
-   			"number_of_retweets": 53,
+   			"number_of_likes": 183,
+   			"number_of_retweets": 98,
   			"number_of_replies": 345,
    			"number_of_impressions": 1034,
-				"number_of_nests": 9,
+				"number_of_nests": 1097,
 				"is_nested": false,
    			"location": "Paris, France",
    			"date_time": "Sat 13 May 2017 02:00 UTC"
@@ -18,9 +18,9 @@
   			"tweet_text": "C'est un jour beau",
    			"number_of_likes": 14,
    			"number_of_retweets": 53,
-  			"number_of_replies": 345,
+  			"number_of_replies": 21,
    			"number_of_impressions": 1034,
-				"number_of_nests": 0,
+				"number_of_nests": 176,
 				"is_nested": false,
    			"location": "Paris, France",
    			"date_time": "Sat 13 May 2017 02:00 UTC"
@@ -32,7 +32,7 @@
    			"number_of_retweets": 23,
    			"number_of_replies": 12,
    			"number_of_impressions": 2034,
-				"number_of_nests": 43,
+				"number_of_nests": 136,
 				"is_nested": false,
    			"location": "Lagos, Nigeria",
    			"date_time": "Sat 13 May 2017 02:00 UTC"
@@ -44,8 +44,8 @@
    			"number_of_retweets": 73,
    			"number_of_replies": 17,
    			"number_of_impressions": 203,
-				"number_of_nests": 0,
-				"is_nested": true,
+				"number_of_nests": 437,
+				"is_nested": false,
    			"location": "London, England",
    			"date_time": "Sat 13 May 2017 02:00 UTC"
 		}
@@ -59,7 +59,7 @@
 			"lastname": "Doe",
 			"favorite_show": "Dear White People",
 			"school": "Winchester University",
-			"num_eggs": 1
+			"num_eggs": 0
   		}
 	]
 }
