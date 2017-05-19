@@ -47,12 +47,21 @@
 <!-- TWITTER UNIVERSITY -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script>
-var tweetObj =
+var tweetObj = 
 {
   tweets: []
 };
 
+var profileObj =
+{
+  profiles: []
+};
+
+var tweetObj = JSON.parse(localStorage.getItem('tweets'));
+var profileObj = JSON.parse(localStorage.getItem('profile'));
+
 var tweet;
+var profile;
 
 var numEgg;
 
@@ -61,7 +70,8 @@ $.ajax({
     dataType : 'json',
     url: '/db',
   }).done( function(data) {
-    var profile = data["profiles"][0];
+    profileObj.profiles.push( data["profiles"][0] );
+    profile = profileObj.profiles[0];
     numEgg = profile.num_eggs;
     var eggDiv = $(".egg-count");
     var eggChild = eggDiv.clone();
@@ -229,7 +239,8 @@ $.ajax({
         eggDiv.empty();
         eggDiv.append(numEgg);
       }
-    localStorage.setItem('tweets', JSON.stringify(tweetObj));      
+    localStorage.setItem('tweets', JSON.stringify(tweetObj));
+    localStorage.setItem('profile', JSON.stringify(profileObj));      
     });
     document.getElementById("nestButton1").addEventListener("click", function(){
       //alert(tweet.is_nested);
@@ -254,7 +265,8 @@ $.ajax({
         eggDiv.empty();
         eggDiv.append(numEgg);
       }
-    localStorage.setItem('tweets', JSON.stringify(tweetObj));      
+    localStorage.setItem('tweets', JSON.stringify(tweetObj));
+    localStorage.setItem('profile', JSON.stringify(profileObj));        
     });
     document.getElementById("nestButton2").addEventListener("click", function(){
       //alert(tweet.is_nested);
@@ -279,7 +291,8 @@ $.ajax({
         eggDiv.empty();
         eggDiv.append(numEgg);
       }
-    localStorage.setItem('tweets', JSON.stringify(tweetObj));      
+    localStorage.setItem('tweets', JSON.stringify(tweetObj)); 
+    localStorage.setItem('profile', JSON.stringify(profileObj));         
     });
     document.getElementById("nestButton3").addEventListener("click", function(){
       //alert(tweet.is_nested);
@@ -305,6 +318,7 @@ $.ajax({
         eggDiv.append(numEgg);
       }
     localStorage.setItem('tweets', JSON.stringify(tweetObj));
+    localStorage.setItem('profile', JSON.stringify(profileObj));    
     });
   });
 

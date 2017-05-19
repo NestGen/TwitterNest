@@ -48,13 +48,16 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script>
 var tweetObj = JSON.parse(localStorage.getItem('tweets'));
+var profileObj = JSON.parse(localStorage.getItem('profile'));
+var tweet;
+var profile;
 var numEgg;
 
 
 $.ajax({
     url: '/db'
   }).done( function(data) {
-    var profile = data["profiles"][0];
+    profile = profileObj.profiles[0];
     numEgg = profile.num_eggs;
     var eggDiv = $(".egg-count");
     var eggChild = eggDiv.clone();
@@ -66,7 +69,7 @@ $.ajax({
     var greyArray = [];
     var x = 0;
     for (i = 0; i < data["tweets"].length; i++) {
-      var tweet = tweetObj.tweets[i];
+      tweet = tweetObj.tweets[i];
       tweet.tweeter_img = "/twitter_profile_files/mkpdB9Tf_bigger.jpg";
       tweet.tweeter_name = "jack";
       tweet.tweet_time_display = "18h";
@@ -206,51 +209,57 @@ $.ajax({
     */
     //if (data["tweets"][0].is_nested) {
     document.getElementById("nestButton0").addEventListener("click", function(){
-      alert(tweet.is_nested + " " + 0);
       var nestDiv = $(".eggId0");
       var eggDiv = $(".egg-count");
       var eggCount = numEgg;
+      tweet = tweetObj.tweets[0];
       $(".egg0").remove();
-      data["tweets"][0].is_nested = false;
-      data["tweets"][0].number_of_nests--;
+      tweet.is_nested = false;
+      tweet.number_of_nests--;
       numEgg--;
       //myDiv.(goldEgg).remove or something
       nestDiv.append(greyArray[0]);
       eggDiv.empty();
       eggDiv.append(numEgg);
+      localStorage.setItem('tweets', JSON.stringify(tweetObj));
+      localStorage.setItem('profile', JSON.stringify(profileObj));
     });
   //}
     //if (data["tweets"][1].is_nested) {
     document.getElementById("nestButton1").addEventListener("click", function(){
-      alert(tweet.is_nested + " " + 1);
       var nestDiv = $(".eggId1");
       var eggDiv = $(".egg-count");
       var eggCount = numEgg;
+      tweet = tweetObj.tweets[1];
       $(".egg1").remove();
-      data["tweets"][1].is_nested = false;
-      data["tweets"][1].number_of_nests--;
+      tweet.is_nested = false;
+      tweet.number_of_nests--;
       numEgg--;
       //myDiv.(goldEgg).remove or something
       nestDiv.append(greyArray[1]);
       eggDiv.empty();
       eggDiv.append(numEgg);
+      localStorage.setItem('tweets', JSON.stringify(tweetObj));
+      localStorage.setItem('profile', JSON.stringify(profileObj));
     });
   //}
 
   //if (data["tweets"][2].is_nested) {
     document.getElementById("nestButton2").addEventListener("click", function(){
-      alert(tweet.is_nested + " " + 2);
       var nestDiv = $(".eggId2");
       var eggDiv = $(".egg-count");
       var eggCount = numEgg;
+      tweet = tweetObj.tweets[2];
       $(".egg2").remove();
-        data["tweets"][2].is_nested = false;
-        data["tweets"][2].number_of_nests--;
+        tweet.is_nested = false;
+        tweet.number_of_nests--;
         numEgg--;
         //myDiv.(goldEgg).remove or something
         nestDiv.append(greyArray[2]);
         eggDiv.empty();
         eggDiv.append(numEgg);
+        localStorage.setItem('tweets', JSON.stringify(tweetObj));
+        localStorage.setItem('profile', JSON.stringify(profileObj));
     });
   //}
   //if (data["tweets"][3].is_nested) {
@@ -259,14 +268,17 @@ $.ajax({
       var nestDiv = $(".eggId3");
       var eggDiv = $(".egg-count");
       var eggCount = numEgg;
+      tweet = tweetObj.tweets[3];
       $(".egg3").remove();
-        data["tweets"][3].is_nested = false;
-        data["tweets"][3].number_of_nests--;
+        tweet.is_nested = false;
+        tweet.number_of_nests--;
         numEgg--;
         //myDiv.(goldEgg).remove or something
         nestDiv.append(greyArray[3]);
         eggDiv.empty();
         eggDiv.append(numEgg);
+        localStorage.setItem('tweets', JSON.stringify(tweetObj));
+        localStorage.setItem('profile', JSON.stringify(profileObj));
     });
   //}
   });
