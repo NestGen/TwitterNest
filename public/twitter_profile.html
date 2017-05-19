@@ -209,28 +209,6 @@ $.ajax({
         nestDiv.append(goldArray[0]);
         eggDiv.empty();
         eggDiv.append(numEgg);
-        // var nestTweet =
-        //   {
-        //       "id": 1,
-        //       "tweet_text": "It's been an amazing evening.",
-        //       "number_of_likes": 39,
-        //       "number_of_retweets": 73,
-        //       "number_of_replies": 17,
-        //       "number_of_impressions": 203,
-        //       "number_of_nests": 1,
-        //       "is_nested": true,
-        //       "location": "London, England",
-        //       "date_time": "Sat 13 May 2017 02:00 UTC"
-        //   };
-        // $.ajax({
-        //   url: '/nested',
-        //   type: 'post',
-        //   dataType: 'json',
-        //   success: function (data) {
-        //     $('#target').html(data.msg);
-        //   },
-        //   data: nestTweet
-        // });
       } else {
         data["tweets"][0].is_nested = false;
         data["tweets"][0].number_of_nests--;

@@ -51,7 +51,7 @@ var numEgg;
 
 
 $.ajax({
-    url: '/db'
+    url: '/nested'
   }).done( function(data) {
     var profile = data["profiles"][0];
     numEgg = profile.num_eggs;
